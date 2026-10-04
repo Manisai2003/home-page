@@ -72,3 +72,4 @@ src/
 - The crest is a placeholder; swap in the official TIS logo from tis.edu.in.
 - The "E-Prospectus" footer link is omitted because its `href` is `undefined` on the live site.
 # home-page
+# home-page

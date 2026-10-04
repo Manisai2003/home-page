@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme tokens: light is the default, .dark is set by next-themes */
+:root {
+  --bg: #f3f5f7;
+  --surface: #ffffff;
+  --ink: #1d1a22;
+  --muted: #55515d;
+  --line: rgba(29, 26, 34, 0.16);
+  --nav-bg: rgba(243, 245, 247, 0.86);
+  --accent: #b90124;
+  --sky-top: #d3e1ec;
+  --sky-bottom: #f5e9d6;
+  --sun: #f0b323;
+  --sun-glow: rgba(240, 179, 35, 0.32);
+  --ridge-far: #b4c4d1;
+  --ridge-mid: #6c8f85;
+  --ridge-near: #1f4d3f;
+  --footer-bg: #1d1a22;
+  --ok: #1c7a4b;
+}
+
+.dark {
+  --bg: #14121a;
+  --surface: #1e1a26;
+  --ink: #f1eef5;
+  --muted: #b4aebf;
+  --line: rgba(241, 238, 245, 0.18);
+  --nav-bg: rgba(20, 18, 26, 0.86);
+  --accent: #ff7a90;
+  --sky-top: #14121a;
+  --sky-bottom: #3b1d2c;
+  --sun: #ece6f5;
+  --sun-glow: rgba(236, 230, 245, 0.16);
+  --ridge-far: #2e2840;
+  --ridge-mid: #1e2b30;
+  --ridge-near: #101c19;
+  --footer-bg: #0e0c12;
+  --ok: #6fdb9e;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+  body {
+    @apply bg-bg font-body text-[1.0625rem] leading-relaxed text-ink transition-colors duration-500;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-normal leading-[1.1];
+  }
+  :focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-10;
+  }
+  .control {
+    @apply min-h-12 w-full rounded-[10px] border-[1.5px] border-line bg-bg px-3.5 text-base text-ink transition-[border-color,box-shadow] duration-200;
+  }
+  .control:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent);
+  }
+  .control[aria-invalid="true"] {
+    border-color: var(--accent);
+  }
+  .field-label {
+    @apply mb-1.5 block text-[0.95rem] font-semibold;
+  }
+  .field-error {
+    @apply mt-1 min-h-[1.2em] text-sm font-medium text-accent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
